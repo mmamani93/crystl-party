@@ -40,14 +40,18 @@ const PartyForm = () => {
         Start Time:
         <input {...register('startTime', { required: true })} />
       </label>
+      <label type='text' name='reason'>
+        Reason:
+        <input {...register('reason', { required: true })} />
+      </label>
       <label type='text' name='participants'>
         Participants:
         <input {...register('participants', { required: true })} />
       </label>
-      {errors.city && <span>This field is required</span>}
       {errors.address && <span>This field is required</span>}
       {errors.startTime && <span>This field is required</span>}
       {errors.participants && <span>This field is required</span>}
+      {errors.reason && <span>This field is required</span>}
       
       <input type='submit' />
     </form>
