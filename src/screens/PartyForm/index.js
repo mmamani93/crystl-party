@@ -24,11 +24,15 @@ const PartyForm = () => {
     dispatch(saveFormData({...data, startDate}))
     dispatch(storeWeather(temperature))
     dispatch(storeBeers(beerAmount))
-    navigate(Routes.PARTY_FORM)
+    navigate(Routes.INVITATION)
   }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
+       <label type='text' name='company'>
+        Company Name:
+        <input defaultValue='Crystl' {...register('company', { required: true })} />
+      </label>
       <label type='text' name='date'>
         Event Date:
         <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />

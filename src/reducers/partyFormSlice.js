@@ -9,13 +9,10 @@ export const partyFormSlice = createSlice({
   },
   reducers: {
     saveFormData: (state, action) => {
-      console.log(state.value)
-      console.log(action.payload)
       state.value = {
         ...state.value,
         formData: action.payload
       }
-      console.log(state.value)
     },
     storeBeers: (state, action) => {
       state.value = {
