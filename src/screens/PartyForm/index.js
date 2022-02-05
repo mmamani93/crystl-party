@@ -8,9 +8,7 @@ import Routes from '../../constants/routes';
 import Cities from '../../constants/cities';
 import styles from './styles.module.scss'
 import { useDispatch } from 'react-redux'
-import { saveFormData }  from '../../reducers/partyFormSlice';
-import { storeWeather } from '../../reducers/weatherSlice';
-import { storeBeers } from '../../reducers/beerSlice';
+import { saveFormData, storeWeather, storeBeers }  from '../../reducers/partyFormSlice';
 import { calculateBeersForWeather } from '../../utils/beerCalculator';
 
 const PartyForm = () => {
