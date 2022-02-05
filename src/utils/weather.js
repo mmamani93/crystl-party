@@ -19,13 +19,14 @@ const getMonthWeather = async city => {
 }
 
 const filterWeatherByDate = (monthData, date) => {
-  // TODO
-  const a = ''
-  return a
+  const missingTime = Math.abs(date - new Date())
+  const missingDays = Math.ceil(missingTime / (1000 * 60 * 60 * 24));
+  const tempForTargetDate = monthData?.list[missingDays - 1]?.temp.record_max / 30
+  return tempForTargetDate
 }
 
 export const getWeatherByDate = async (date, city) => {
   const monthData = await getMonthWeather(city)
-  const dateWeather = filterWeatherByDate(monthData, date)
-  return dateWeather
+  const tempForTargetDate = filterWeatherByDate(monthData, date)
+  return tempForTargetDate
 }
