@@ -1,0 +1,31 @@
+.container {
+  min-height: 40px;
+  flex-direction: column;
+  display: flex;
+  max-width: 500px;
+}
+
+.label {
+  color: #FFF;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.picker {
+  background-color: rgb(72, 63, 90);
+  border-radius: 16px;
+  border: 0px;
+  box-shadow: rgb(74 74 104 / 10%) 0px 2px 2px -1px inset;
+  color: rgb(255, 255, 255);
+  display: block;
+  font-size: 16px;
+  font-weight: 400;
+  height: 40px;
+  outline: 0px;
+  padding: 0px 16px;
+  text-transform: uppercase;
+  width: 100%;
+}

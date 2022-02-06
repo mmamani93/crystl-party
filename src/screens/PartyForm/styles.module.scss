@@ -1,6 +1,12 @@
 .container {
-  align-items: baseline;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  height: 500px;
+  justify-content: space-between;
+  justify-self: center;  
+  margin: 200px;
+}
+
+.datePicker {
+  justify-self: end;
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Routes from '@constants/routes'
+import Button from '@components/Button'
 import styles from './styles.module.scss'
 
 const Welcome = () => {
@@ -23,7 +24,7 @@ const Welcome = () => {
       <span className={styles.text}>
         You only need to fill in some information for us and we will do the rest for you!
       </span>
-      <button onClick={navigateToPartyForm} type='button' className={styles.next}>Lets get the party planned!</button>
+      <Button onClick={navigateToPartyForm} text='Lets get the party planned!'/>
     </div>
   )
 }
