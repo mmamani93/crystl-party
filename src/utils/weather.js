@@ -7,12 +7,12 @@ const WEATHER_API_HEADERS = {
 }
 
 const getMonthWeather = async city => {
-  var options = {
+  const options = {
     method: 'GET',
     url: `${WEATHER_API_URL}/climate/month`,
-    params: {q: city},
+    params: { q: city },
     headers: WEATHER_API_HEADERS
-  };
+  }
 
   const { data } = await axios.request(options).catch(error => console.error(error))
   return data
@@ -20,7 +20,7 @@ const getMonthWeather = async city => {
 
 const filterWeatherByDate = (monthData, date) => {
   const missingTime = Math.abs(date - new Date())
-  const missingDays = Math.ceil(missingTime / (1000 * 60 * 60 * 24));
+  const missingDays = Math.ceil(missingTime / (1000 * 60 * 60 * 24))
   const tempForTargetDate = monthData?.list[missingDays - 1]?.temp.record_max / 30
   return tempForTargetDate
 }

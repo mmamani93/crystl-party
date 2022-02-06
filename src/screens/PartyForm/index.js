@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import Routes from '../../constants/routes'
-import Cities from '../../constants/cities'
+import Cities from './constants/cities'
 import { saveFormData, storeWeather, storeBeers } from '../../reducers/partyFormSlice'
 import { calculateBeersForWeather } from '../../utils/beerCalculator'
 import Input from '../../components/Input'
@@ -35,17 +35,21 @@ const PartyForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
       <Input name="company" register={register} required label="Company Name" defaultValue="Crystl" />
-      <Picker selected={startDate} onChange={setDate} label="Event Date" />
+      <Picker
+        selected={startDate}
+        onChange={setDate}
+        label="Event Date"
+        showTimeSelect
+        maxDate={30}
+      />
       <Select name="city" register={register} required options={Cities} />
       <Input name="address" register={register} required />
-      <Input name="startTime" register={register} required label="Start Time" />
       <Input name="reason" register={register} required label="Meeting Reason" />
       <Input name="participants" register={register} required />
 
       {errors.company && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
       {errors.city && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
       {errors.address && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
-      {errors.startTime && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
       {errors.reason && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
       {errors.participants && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
 

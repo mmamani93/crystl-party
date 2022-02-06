@@ -1,6 +1,10 @@
 import React from 'react'
 
-const FormError = ({ errorMessage }) => {
+type FormErrorProps = {
+  errorMessage: string
+};
+
+const FormError = ({ errorMessage }: FormErrorProps) => {
   return <span>{errorMessage}</span>
 }
 

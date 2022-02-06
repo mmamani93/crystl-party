@@ -1,12 +1,12 @@
-import React from 'react';
+import React from 'react'
 import {
   Routes,
-  Route,
-} from 'react-router-dom';
-import routesURL from '../constants/routes';
-import Welcome from '../screens/Welcome';
-import Invitation from '../screens/Invitation';
-import PartyForm from '../screens/PartyForm';
+  Route
+} from 'react-router-dom'
+import routesURL from '../constants/routes'
+import Welcome from '../screens/Welcome'
+import Invitation from '../screens/Invitation'
+import PartyForm from '../screens/PartyForm'
 
 const AppRoutes = () => (
   <Routes>
@@ -16,4 +16,4 @@ const AppRoutes = () => (
   </Routes>
 )
 
-export default AppRoutes;
+export default AppRoutes

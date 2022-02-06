@@ -1,6 +1,14 @@
 import React from 'react'
 
-const Select = ({ name, register, required = false, label, options = [] }) => {
+type SelectProps = {
+  label: string,
+  name: string,
+  register: () => void,
+  required: boolean,
+  options: string[]
+};
+
+const Select = ({ name, register, required = false, label, options = [] }: SelectProps) => {
   const displayLabel = label || name.charAt(0).toUpperCase() + name.slice(1)
 
   return (
