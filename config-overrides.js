@@ -1,4 +1,4 @@
-import { alias } from 'react-app-rewire-alias'
+const { alias } = require('react-app-rewire-alias')
 
 module.exports = function override (config) {
   alias({

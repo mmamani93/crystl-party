@@ -8,8 +8,6 @@ import { calculateBeersForWeather } from '@utils/beerCalculator'
 import Input from '@components/Input'
 import { getWeatherByDate } from '@utils/weather'
 import Select from '@components/Select'
-import FormError from '@components/FormError'
-import { REQUIRED_FIELD_ERROR } from '@constants/formStrings'
 import Picker from '@components/DatePicker'
 import Cities from './constants/cities'
 import styles from './styles.module.scss'
@@ -34,7 +32,7 @@ const PartyForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
-      <Input name="company" register={register} required label="Company Name" defaultValue="Crystl" />
+      <Input name="company" register={register} required label="Company Name" defaultValue="Crystl" error={errors.company} />
       <Picker
         selected={startDate}
         onChange={setDate}
@@ -42,16 +40,10 @@ const PartyForm = () => {
         showTimeSelect
         maxDate={30}
       />
-      <Select name="city" register={register} required options={Cities} />
-      <Input name="address" register={register} required />
-      <Input name="reason" register={register} required label="Meeting Reason" />
-      <Input name="participants" register={register} required />
-
-      {errors.company && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
-      {errors.city && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
-      {errors.address && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
-      {errors.reason && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
-      {errors.participants && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
+      <Select name="city" register={register} required options={Cities} error={errors.city} />
+      <Input name="address" register={register} required error={errors.address} />
+      <Input name="reason" register={register} required label="Meeting Reason" error={errors.reason} />
+      <Input name="participants" register={register} required error={errors.participants} />
 
       <input type="submit" />
     </form>
