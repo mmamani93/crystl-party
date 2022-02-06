@@ -1,3 +1,4 @@
+import React from 'react'
 import { useSelector } from 'react-redux'
 import styles from './styles.module.scss'
 
@@ -10,7 +11,7 @@ const Invitation = () => {
     <div className={styles.container}>
       <span>Party organization: {formData.company}</span>
       <span>We are meeting to celebrate {formData.reason}</span>
-      <span>We will be waiting for you in {formData.address} the day {String(formData.startDate)} starting at {formData.startTime}</span>
+      <span>We will be waiting for you in {formData.address} the day {String(formData.startDate)}</span>
       <span>There will be {beers} beers</span>
       <span>Temperature will be {temperature.toFixed(2)} celcius degrees</span>
     </div>

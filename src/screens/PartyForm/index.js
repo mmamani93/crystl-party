@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
-import { getWeatherByDate } from '../../utils/weather';
-import "react-datepicker/dist/react-datepicker.css";
-import { useNavigate } from 'react-router-dom';
-import { useForm } from 'react-hook-form';
-import DatePicker from 'react-datepicker'
-import Routes from '../../constants/routes';
-import Cities from '../../constants/cities';
-import styles from './styles.module.scss'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { saveFormData, storeWeather, storeBeers }  from '../../reducers/partyFormSlice';
-import { calculateBeersForWeather } from '../../utils/beerCalculator';
+import { useNavigate } from 'react-router-dom'
+import { useForm } from 'react-hook-form'
+import Routes from '@constants/routes'
+import { saveFormData, storeWeather, storeBeers } from '@reducers/partyFormSlice'
+import { calculateBeersForWeather } from '@utils/beerCalculator'
+import Input from '@components/Input'
+import { getWeatherByDate } from '@utils/weather'
+import Select from '@components/Select'
+import Picker from '@components/DatePicker'
+import Cities from './constants/cities'
+import styles from './styles.module.scss'
 
 const PartyForm = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const [startDate, setStartDate] = useState(new Date());
+  const { register, handleSubmit, formState: { errors } } = useForm()
+  const [startDate, setStartDate] = useState(new Date())
+
+  const setDate = (date) => setStartDate(date)
 
   const onSubmit = async data => {
     const temperature = await getWeatherByDate(startDate, data.city)
     const beerAmount = calculateBeersForWeather(temperature, data.participants)
-    dispatch(saveFormData({...data, startDate}))
+    dispatch(saveFormData({ ...data, startDate }))
     dispatch(storeWeather(temperature))
     dispatch(storeBeers(beerAmount))
     navigate(Routes.INVITATION)
@@ -29,46 +32,22 @@ const PartyForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
-       <label type='text' name='company'>
-        Company Name:
-        <input defaultValue='Crystl' {...register('company', { required: true })} />
-      </label>
-      <label type='text' name='date'>
-        Event Date:
-        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-      </label>
-      <label type='text' name='city'>
-        City:
-        <select {...register('city', { required: true })}>
-          {Cities.map(city => (
-            <option value={city} key={city}>{city}</option>
-            ))}
-        </select>
-      </label>
-      <label type='text' name='address'>
-        Address:
-        <input {...register('address', { required: true })} />
-      </label>
-      <label type='text' name='startTime'>
-        Start Time:
-        <input {...register('startTime', { required: true })} />
-      </label>
-      <label type='text' name='reason'>
-        Reason:
-        <input {...register('reason', { required: true })} />
-      </label>
-      <label type='text' name='participants'>
-        Participants:
-        <input {...register('participants', { required: true })} />
-      </label>
-      {errors.address && <span>This field is required</span>}
-      {errors.startTime && <span>This field is required</span>}
-      {errors.participants && <span>This field is required</span>}
-      {errors.reason && <span>This field is required</span>}
-      
-      <input type='submit' />
+      <Input name="company" register={register} required label="Company Name" defaultValue="Crystl" error={errors.company} />
+      <Picker
+        selected={startDate}
+        onChange={setDate}
+        label="Event Date"
+        showTimeSelect
+        maxDate={30}
+      />
+      <Select name="city" register={register} required options={Cities} error={errors.city} />
+      <Input name="address" register={register} required error={errors.address} />
+      <Input name="reason" register={register} required label="Meeting Reason" error={errors.reason} />
+      <Input name="participants" register={register} required error={errors.participants} />
+
+      <input type="submit" />
     </form>
-  );
+  )
 }
 
 export default PartyForm
