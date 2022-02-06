@@ -1,12 +1,29 @@
 .container {
-  display: flex;
-  flex-direction: column;
-  height: 500px;
-  justify-content: space-between;
-  justify-self: center;  
-  margin: 200px;
+  display: grid;
+  grid-column-gap: 10%;
+  grid-template-areas: 
+    "fields invitationCard"
+    "button button";
+  grid-template-columns: 45% 45%;
+  grid-template-rows: 80% 20%;
+  height: 100%;
 }
 
-.datePicker {
+.fields {
+  display: flex;
+  flex-direction: column;
+  grid-area: fields;
+  justify-content: space-between;
+}
+
+.invitationCard {
+  grid-area: invitationCard;
+  height: 100%;
   justify-self: end;
+}
+
+.submit {
+  align-self: end;
+  grid-area: button;
+  grid-column: span 2;
 }

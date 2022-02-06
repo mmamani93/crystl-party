@@ -8,16 +8,19 @@ import Welcome from '@screens/Welcome'
 import Invitation from '@screens/Invitation'
 import PartyForm from '@screens/PartyForm'
 import Header from '@components/Header'
-import Footer from '../components/Footer'
+import Footer from '@components/Footer'
+import styles from '../styles.module.scss'
 
 const AppRoutes = () => (
   <>
     <Header />
-    <Routes>
-      <Route path={RoutesURL.WELCOME} element={<Welcome />} />
-      <Route path={RoutesURL.PARTY_FORM} element={<PartyForm />} />
-      <Route path={RoutesURL.INVITATION} element={<Invitation />} />
-    </Routes>
+    <div className={styles.appContainer}>
+      <Routes>
+        <Route path={RoutesURL.WELCOME} element={<Welcome />} />
+        <Route path={RoutesURL.PARTY_FORM} element={<PartyForm />} />
+        <Route path={RoutesURL.INVITATION} element={<Invitation />} />
+      </Routes>
+    </div>
     <Footer />
   </>
 )

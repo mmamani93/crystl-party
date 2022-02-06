@@ -14,6 +14,7 @@ import { getWeatherByDate } from '@utils/weather'
 import Select from '@components/Select'
 import Picker from '@components/DatePicker'
 import Button from '@components/Button'
+import InvitationCard from '@assets/invitationCard.png'
 import Cities from './constants/cities'
 import styles from './styles.module.scss'
 
@@ -41,41 +42,44 @@ const PartyForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
-      <Picker
-        label="Event Date"
-        maxDate={30}
-        onChange={setDate}
-        selected={startDate}
-        showTimeSelect
-      />
-      <Select
-        error={errors.city}
-        name="city"
-        options={Cities}
-        register={register}
-        required
-      />
-      <Input
-        error={errors.address}
-        name="address"
-        register={register}
-        required
-      />
-      <Input
-        error={errors.reason}
-        label="Meeting Reason"
-        name="reason"
-        register={register}
-        required
-      />
-      <Input
-        error={errors.participants}
-        name="participants"
-        register={register}
-        required
-        type="number"
-      />
-      <Button type="submit" text="Lets do it!" />
+      <div className={styles.fields}>
+        <Picker
+          label="Event Date"
+          maxDate={30}
+          onChange={setDate}
+          selected={startDate}
+          showTimeSelect
+        />
+        <Select
+          error={errors.city}
+          name="city"
+          options={Cities}
+          register={register}
+          required
+        />
+        <Input
+          error={errors.address}
+          name="address"
+          register={register}
+          required
+        />
+        <Input
+          error={errors.reason}
+          label="Meeting Reason"
+          name="reason"
+          register={register}
+          required
+        />
+        <Input
+          error={errors.participants}
+          name="participants"
+          register={register}
+          required
+          type="number"
+        />
+      </div>
+      <img className={styles.invitationCard} src={InvitationCard} alt='InvitationCard'/>
+      <Button type="submit" text="Lets do it!" style={styles.submit} />
     </form>
   )
 }
