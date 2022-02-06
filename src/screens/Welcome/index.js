@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Routes from '../../constants/routes'
+import Routes from '@constants/routes'
 
 const Welcome = () => {
   const navigate = useNavigate()

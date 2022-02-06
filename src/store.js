@@ -7,7 +7,7 @@ const customizedMiddleware = getDefaultMiddleware({
 
 export default configureStore({
   reducer: {
-    partyForm: partyFormReducer,
+    partyForm: partyFormReducer
   },
-  middleware: customizedMiddleware,
+  middleware: customizedMiddleware
 })

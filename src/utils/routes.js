@@ -3,10 +3,10 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
-import routesURL from '../constants/routes'
-import Welcome from '../screens/Welcome'
-import Invitation from '../screens/Invitation'
-import PartyForm from '../screens/PartyForm'
+import routesURL from '@constants/routes'
+import Welcome from '@screens/Welcome'
+import Invitation from '@screens/Invitation'
+import PartyForm from '@screens/PartyForm'
 
 const AppRoutes = () => (
   <Routes>
