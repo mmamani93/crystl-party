@@ -3,17 +3,23 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
-import routesURL from '@constants/routes'
+import RoutesURL from '@constants/routes'
 import Welcome from '@screens/Welcome'
 import Invitation from '@screens/Invitation'
 import PartyForm from '@screens/PartyForm'
+import Header from '@components/Header'
+import Footer from '../components/Footer'
 
 const AppRoutes = () => (
-  <Routes>
-    <Route path={routesURL.WELCOME} element={<Welcome />} />
-    <Route path={routesURL.PARTY_FORM} element={<PartyForm />} />
-    <Route path={routesURL.INVITATION} element={<Invitation />} />
-  </Routes>
+  <>
+    <Header />
+    <Routes>
+      <Route path={RoutesURL.WELCOME} element={<Welcome />} />
+      <Route path={RoutesURL.PARTY_FORM} element={<PartyForm />} />
+      <Route path={RoutesURL.INVITATION} element={<Invitation />} />
+    </Routes>
+    <Footer />
+  </>
 )
 
 export default AppRoutes

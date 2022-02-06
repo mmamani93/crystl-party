@@ -1,0 +1,21 @@
+.container {
+  align-items: center;
+  background-color: #27262d;
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  left: 0px;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+}
+
+.logo {
+  height: 60px;
+  margin: 10px;
+}
+
+.appName {
+  color: #fff;
+  margin: 10px 20px;
+}
