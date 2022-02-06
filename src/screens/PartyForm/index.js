@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { getWeatherByDate } from '../../utils/weather';
 import "react-datepicker/dist/react-datepicker.css";
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import DatePicker from 'react-datepicker'
 import Routes from '../../constants/routes';
 import Cities from '../../constants/cities';
 import styles from './styles.module.scss'
-import { useDispatch } from 'react-redux'
 import { saveFormData, storeWeather, storeBeers }  from '../../reducers/partyFormSlice';
 import { calculateBeersForWeather } from '../../utils/beerCalculator';
+import Input from '../../components/Input';
+import { getWeatherByDate } from '../../utils/weather';
+import Select from '../../components/Select';
+import FormError from '../../components/FormError';
+import { REQUIRED_FIELD_ERROR } from '../../constants/formStrings';
+import Picker from '../../components/DatePicker';
+
 
 const PartyForm = () => {
   const navigate = useNavigate()
@@ -17,6 +22,8 @@ const PartyForm = () => {
 
   const { register, handleSubmit, formState: { errors } } = useForm();
   const [startDate, setStartDate] = useState(new Date());
+
+  const setDate = date => setStartDate(date)
 
   const onSubmit = async data => {
     const temperature = await getWeatherByDate(startDate, data.city)
@@ -29,43 +36,21 @@ const PartyForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
-       <label type='text' name='company'>
-        Company Name:
-        <input defaultValue='Crystl' {...register('company', { required: true })} />
-      </label>
-      <label type='text' name='date'>
-        Event Date:
-        <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-      </label>
-      <label type='text' name='city'>
-        City:
-        <select {...register('city', { required: true })}>
-          {Cities.map(city => (
-            <option value={city} key={city}>{city}</option>
-            ))}
-        </select>
-      </label>
-      <label type='text' name='address'>
-        Address:
-        <input {...register('address', { required: true })} />
-      </label>
-      <label type='text' name='startTime'>
-        Start Time:
-        <input {...register('startTime', { required: true })} />
-      </label>
-      <label type='text' name='reason'>
-        Reason:
-        <input {...register('reason', { required: true })} />
-      </label>
-      <label type='text' name='participants'>
-        Participants:
-        <input {...register('participants', { required: true })} />
-      </label>
-      {errors.address && <span>This field is required</span>}
-      {errors.startTime && <span>This field is required</span>}
-      {errors.participants && <span>This field is required</span>}
-      {errors.reason && <span>This field is required</span>}
-      
+      <Input name='company' register={register} required label='Company Name' defaultValue='Crystl' />
+      <Picker selected={startDate} onChange={setDate} label='Event Date' />
+      <Select name='city' register={register} required options={Cities} />
+      <Input name='address' register={register} required />
+      <Input name='startTime' register={register} required label='Start Time' />
+      <Input name='reason' register={register} required label='Meeting Reason' />
+      <Input name='participants' register={register} required />
+
+      {errors.company && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
+      {errors.city && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
+      {errors.address && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
+      {errors.startTime && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
+      {errors.reason && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
+      {errors.participants && <FormError errorMessage={REQUIRED_FIELD_ERROR} />}
+
       <input type='submit' />
     </form>
   );
