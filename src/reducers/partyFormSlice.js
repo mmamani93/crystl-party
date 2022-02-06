@@ -28,8 +28,8 @@ export const partyFormSlice = createSlice({
     },
     clearFormData: (state) => {
       state.value = {}
-    },
-  },
+    }
+  }
 })
 
 export const { saveFormData, storeBeers, storeWeather, clearFormData } = partyFormSlice.actions

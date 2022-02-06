@@ -1,12 +1,14 @@
-import React from 'react';
+import React from 'react'
 import DatePicker from 'react-datepicker'
-import "react-datepicker/dist/react-datepicker.css";
+import 'react-datepicker/dist/react-datepicker.css'
 
-const Picker = ({ label, selected, onChange }) => (
+const Picker = ({ label, selected, onChange }) => {
+  return (
     <>
-    <label>{label}</label>
-    <DatePicker selected={selected} onChange={onChange} />
-  </>
-)
+      <label>{label}</label>
+      <DatePicker selected={selected} onChange={onChange} />
+    </>
+  )
+}
 
 export default Picker

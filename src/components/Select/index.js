@@ -1,6 +1,8 @@
+import React from 'react'
+
 const Select = ({ name, register, required = false, label, options = [] }) => {
-  const displayLabel = label || name.charAt(0).toUpperCase() + name.slice(1);
-  
+  const displayLabel = label || name.charAt(0).toUpperCase() + name.slice(1)
+
   return (
   <>
     <label>{displayLabel}</label>
@@ -10,7 +12,7 @@ const Select = ({ name, register, required = false, label, options = [] }) => {
       ))}
     </select>
   </>
-)
+  )
 }
 
 export default Select
