@@ -1,7 +1,29 @@
 .container {
   display: flex;
   flex-direction: column;
-  position: absolute;
-  background-color: #FFF5DC;
-  margin: 30%
+  height: 500px;
+  justify-content: space-between;
+  justify-self: center;  
+  margin: 200px;
+}
+
+.text {
+  font-size: large;
+}
+
+.next {
+  color: #FFF;
+  background-color: #d99cde;
+  border-radius: 10px;
+  border: 0;
+  font-size: large;
+  font-weight: bold;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
 }
