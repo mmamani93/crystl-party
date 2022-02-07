@@ -9,11 +9,22 @@ const Invitation = () => {
 
   return (
     <div className={styles.container}>
-      <span>Party organization: {formData.company}</span>
-      <span>We are meeting to celebrate {formData.reason}</span>
-      <span>We will be waiting for you in {formData.address} the day {String(formData.startDate)}</span>
-      <span>There will be {beers} beers</span>
-      <span>Temperature will be {temperature.toFixed(2)} celcius degrees</span>
+      <h3 className={`${styles.partyInfo} ${styles.title}`}>{formData.reason}</h3>
+      <span className={styles.partyInfo}>Date:
+        <span className={styles.data}> {String(formData.startDate)}</span>
+      </span>
+      <span className={styles.partyInfo}>Time:
+        <span className={styles.data}> {String(formData.startDate)}</span>
+      </span>
+      <span className={styles.partyInfo}>Where:
+        <span className={styles.data}> {formData.address}</span>
+      </span>
+      <span className={styles.partyInfo}>Total amount of beers:
+        <span className={styles.data}> {beers}</span>
+      </span>
+      <span className={styles.partyInfo}>Temperature forecast:
+        <span className={styles.data}> {temperature.toFixed(1)} °C</span>
+      </span>
     </div>
   )
 }

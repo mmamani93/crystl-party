@@ -2,7 +2,6 @@
   min-height: 40px;
   flex-direction: column;
   display: flex;
-  max-width: 500px;
 }
 
 .label {
@@ -19,6 +18,7 @@
   border-radius: 16px;
   border: 0px;
   box-shadow: rgb(74 74 104 / 10%) 0px 2px 2px -1px inset;
+  box-sizing: border-box;
   color: rgb(255, 255, 255);
   display: block;
   font-size: 14px;

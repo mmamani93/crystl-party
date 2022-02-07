@@ -14,7 +14,7 @@ import { getWeatherByDate } from '@utils/weather'
 import Select from '@components/Select'
 import Picker from '@components/DatePicker'
 import Button from '@components/Button'
-import InvitationCard from '@assets/invitationCard.png'
+import InvitationCard from '@assets/invitationCard.jpg'
 import Cities from './constants/cities'
 import styles from './styles.module.scss'
 

@@ -3,9 +3,7 @@ import styles from './styles.module.scss'
 import CrystlLogo from '@assets/crystlLogo.png'
 
 const Footer = () => (
-  <div className={styles.container}>
-    <img className={styles.logo} src={CrystlLogo} alt='Crystl logo'/>
-  </div>
+  <img className={styles.logo} src={CrystlLogo} alt='Crystl logo'/>
 )
 
 export default Footer
