@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { animated, useSpring } from 'react-spring'
 import Routes from '@constants/routes'
 import {
   saveFormData,
@@ -15,12 +16,15 @@ import Select from '@components/Select'
 import Picker from '@components/DatePicker'
 import Button from '@components/Button'
 import InvitationCard from '@assets/invitationCard.jpg'
+import { RIGHT_TO_LEFT, LEFT_TO_RIGHT } from '@constants/animation'
 import Cities from './constants/cities'
 import styles from './styles.module.scss'
 
 const PartyForm = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch()
+  const formAnimation = screen.width > 800 ? useSpring(LEFT_TO_RIGHT) : {}
+  const imageAnimation = useSpring(RIGHT_TO_LEFT)
 
   const {
     register,
@@ -42,7 +46,7 @@ const PartyForm = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
-      <div className={styles.fields}>
+      <animated.div className={styles.fields} style={formAnimation}>
         <Input
           error={errors.reason}
           label="Meeting Reason"
@@ -78,8 +82,8 @@ const PartyForm = () => {
           required
           type="number"
         />
-      </div>
-      <img className={styles.invitationCard} src={InvitationCard} alt='InvitationCard'/>
+      </animated.div>
+      <animated.img className={styles.invitationCard} src={InvitationCard} alt='InvitationCard' style={imageAnimation} />
       <Button type="submit" text="Lets do it!" style={styles.submit} />
     </form>
   )
