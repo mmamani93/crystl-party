@@ -1,0 +1,19 @@
+* {
+  font-family: Kanit, sans-serif;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  background: linear-gradient(90deg, rgb(147, 104, 171) 0%, rgb(97, 137, 171) 100%);
+  background-image: linear-gradient(90deg, rgb(147, 104, 171) 0%, rgb(97, 137, 171) 100%);
+}
+
+.appContainer {
+  box-sizing: border-box;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  padding: 120px 200px 150px;
+}

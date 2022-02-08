@@ -1,0 +1,32 @@
+.container {
+  min-height: 40px;
+  flex-direction: column;
+  display: flex;
+}
+
+.label {
+  color: #FFF;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.select {
+  align-items: center;
+  background: rgb(72, 63, 90);
+  border-radius: 16px;
+  border: 1px solid rgb(102, 87, 141);
+  box-shadow: rgb(74 74 104 / 10%) 0px 2px 2px -1px inset;
+  box-sizing: border-box;
+  color: #fff;
+  display: flex;
+  font-size: 16px;
+  height: 40px;
+  justify-content: space-between;
+  padding: 0px 16px;
+  text-transform: uppercase;
+  transition: border-radius 0.15s ease 0s;
+  width: 100%;
+}
