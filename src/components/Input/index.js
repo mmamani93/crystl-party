@@ -1,5 +1,5 @@
 import React from 'react'
-import { REQUIRED_FIELD_ERROR } from '@constants/formStrings'
+import { REQUIRED_FIELD_ERROR } from '@constants/formErrors'
 import FormError from '../FormError'
 import styles from './styles.module.scss'
 

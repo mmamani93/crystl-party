@@ -1,14 +1,17 @@
 import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { animated, useSpring } from 'react-spring'
 import Routes from '@constants/routes'
-import styles from './styles.module.scss'
+import { TOP_TO_BOTTOM } from '@constants/animation'
 import BeersAndWeather from './components/BeersAndWeather'
+import styles from './styles.module.scss'
 
 const dateFormat = { day: '2-digit', weekday: 'long', year: 'numeric', month: '2-digit', hour: '2-digit', minute: '2-digit' }
 
 const Invitation = () => {
   const navigate = useNavigate()
+  const animatedStyle = useSpring(TOP_TO_BOTTOM)
 
   const { formData } = useSelector((state) => state?.partyForm?.value || {})
 
@@ -20,7 +23,7 @@ const Invitation = () => {
 
   return formData
     ? (
-    <div className={styles.container}>
+    <animated.div className={styles.container} style={animatedStyle}>
       <h3 className={`${styles.partyInfo} ${styles.title}`}>You are invited to {formData.reason}!</h3>
       <span className={styles.partyInfo}>When:
         <span className={styles.data}> {formData.startDate.toLocaleDateString('en-US', dateFormat)}</span>
@@ -30,7 +33,7 @@ const Invitation = () => {
       </span>
       <BeersAndWeather />
       <span className={`${styles.partyInfo} ${styles.footer}`}>Event hosted by Crystl Finance</span>
-    </div>
+    </animated.div>
       )
     : null
 }

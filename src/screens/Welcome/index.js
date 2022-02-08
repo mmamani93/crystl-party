@@ -1,16 +1,19 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import { useSpring, animated } from 'react-spring'
 import Routes from '@constants/routes'
 import Button from '@components/Button'
 import styles from './styles.module.scss'
+import { OPACITY_SHOW } from '@constants/animation'
 
 const Welcome = () => {
   const navigate = useNavigate()
+  const animatedStyle = useSpring(OPACITY_SHOW)
 
   const navigateToPartyForm = () => navigate(Routes.PARTY_FORM)
 
   return (
-    <div className={styles.container}>
+    <animated.div className={styles.container} style={animatedStyle}>
       <h1>Welcome to Crystl party planner, we will help you to plan the best beer parties!</h1>
       <h2>What can I do with this app?</h2>
       <span className={styles.text}>
@@ -25,7 +28,7 @@ const Welcome = () => {
         You only need to fill in some information for us and we will do the rest for you!
       </span>
       <Button onClick={navigateToPartyForm} text='Lets get the party planned!' style={styles.button} />
-    </div>
+    </animated.div>
   )
 }
 
