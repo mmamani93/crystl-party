@@ -24,7 +24,7 @@ const Welcome = () => {
       <span className={styles.text}>
         You only need to fill in some information for us and we will do the rest for you!
       </span>
-      <Button onClick={navigateToPartyForm} text='Lets get the party planned!'/>
+      <Button onClick={navigateToPartyForm} text='Lets get the party planned!' style={styles.button} />
     </div>
   )
 }

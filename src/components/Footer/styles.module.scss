@@ -4,3 +4,15 @@
   position: fixed;
   right: 10px;
 }
+
+@media (max-width: 1200px) {
+  .logo {
+    height: 150px;
+  }
+}
+
+@media (max-width: 800px) {
+  .logo {
+    display: none;
+  }
+}

@@ -59,3 +59,41 @@
     background-size: cover;
   }
 }
+
+@media (max-width: 800px) {
+  .container {
+    margin-top: 20px;
+    padding: 160px 40px 10px;
+    min-height: 575px;
+
+    &::before {
+      min-width: 0;
+      width: 100%;
+    }
+
+    &::after {
+      content: "";
+      background: url('../../assets/boardBackground.png');
+      bottom: 0;
+      height: 100%;
+      left: 0;
+      position: absolute;
+      width: 100%;
+      z-index: -2;
+    }
+  }
+}
+
+@media (max-height: 910px) {
+  .container {
+    margin-top: 20px;
+    padding: 180px 40px 10px;
+    min-height: 575px;
+    max-width: 420px;
+
+    &::before {
+      min-width: 0;
+      width: 100%;
+    }
+  }
+}

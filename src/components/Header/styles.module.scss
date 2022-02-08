@@ -25,3 +25,19 @@
   border: 0;
   padding: 0;
 }
+
+@media (max-width: 800px) {
+  .container {
+    flex-direction: column;
+    height: 100px;
+  }
+
+  .logo {
+    height: 40px;
+    margin: 5px;
+  }
+
+  .appName {
+    font-size: 26px;
+  }
+}

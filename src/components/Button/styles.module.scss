@@ -14,3 +14,9 @@
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
   }
 }
+
+@media (max-width: 800px) {
+  .button {
+    height: 60px;
+  }
+}
