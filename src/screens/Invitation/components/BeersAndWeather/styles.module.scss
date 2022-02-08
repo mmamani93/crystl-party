@@ -1,0 +1,25 @@
+.container {
+  align-self: center;
+  border: 1px #FFF solid;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  text-align: center;
+  width: 80%;
+}
+
+.partyInfo {
+  color: #FFF
+}
+
+.data {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.beers { 
+  color: #d99dfa;
+  font-size: 38px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}

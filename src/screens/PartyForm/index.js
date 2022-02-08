@@ -43,6 +43,13 @@ const PartyForm = () => {
   return (
     <form onSubmit={handleSubmit(onSubmit)} className={styles.container}>
       <div className={styles.fields}>
+        <Input
+          error={errors.reason}
+          label="Meeting Reason"
+          name="reason"
+          register={register}
+          required
+        />
         <Picker
           label="Event Date"
           maxDate={30}
@@ -63,13 +70,7 @@ const PartyForm = () => {
           register={register}
           required
         />
-        <Input
-          error={errors.reason}
-          label="Meeting Reason"
-          name="reason"
-          register={register}
-          required
-        />
+
         <Input
           error={errors.participants}
           name="participants"
