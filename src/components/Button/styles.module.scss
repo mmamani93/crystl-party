@@ -1,0 +1,22 @@
+.button {
+  color: #FFF;
+  background-color: #d99cde;
+  border-radius: 10px;
+  border: 0;
+  font-size: large;
+  font-weight: bold;
+  height: 40px;
+  cursor: pointer;
+  box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+
+  &:active {
+    transform: scale(0.98);
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+  }
+}
+
+@media (max-width: 800px) {
+  .button {
+    height: 60px;
+  }
+}
